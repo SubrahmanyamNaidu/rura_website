@@ -7,3 +7,19 @@ Test users
   "password":"naidu",
   "role":"customer"
 }
+
+
+admin credientials
+{
+  "name":"admin",
+  "email":"admin@admin.com",
+  "password":"naidu272694",
+  "phoneNumber":"7993905942",
+  "role":"admin"
+}
+
+{
+  "id": "67b1c25a5846bf53865111fb",
+  "name": "admin",
+  "email": "admin@admin.com"
+}

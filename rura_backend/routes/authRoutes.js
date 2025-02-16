@@ -12,7 +12,7 @@ router.post("/register",async(req,res)=>{
         let userExists=await User.findOne({email});
         if(userExists) return res.status(400).json({message:"User already exists"});
         if(phoneNumber.length!=10)  return res.status(400).json({message:"Not a valid Phone number"})  
-        const user=new User({name,email,password})
+        const user=new User({name,email,password,phoneNumber})
         await user.save();
 
         generateToken(res,user)
@@ -22,8 +22,8 @@ router.post("/register",async(req,res)=>{
             email:user.email, 
         });
     }catch(error){
-        console.log(error)
-        res.status(500).json({message:"Server error"});
+        // console.log(error)
+        res.status(500).json({message: error.message || "Internal Server Error"});
     }
 });
 

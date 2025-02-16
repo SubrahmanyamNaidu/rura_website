@@ -1,0 +1,9 @@
+Use bcrypt insted of bcryptjs 
+
+Test users
+{
+  "name":"Naidu",
+  "email":"naidu@gmail.com",
+  "password":"naidu",
+  "role":"customer"
+}

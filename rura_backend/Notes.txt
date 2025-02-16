@@ -23,3 +23,12 @@ admin credientials
   "name": "admin",
   "email": "admin@admin.com"
 }
+
+
+//vendor
+
+name:First 
+email:test@gmail.com
+pass:test
+ph:7993905942
+

@@ -25,7 +25,7 @@ const adminOnly=(req,res,next)=>{
 
 
 const vendorOnly=(req,res,next)=>{
-    if(req.user && res.user.role=="vendor"){
+    if(req.user && req.user.role=="vendor"){
         next();
     }else{
         res.status(403).json({message:"Access denied, vendor only"})

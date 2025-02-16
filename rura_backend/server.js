@@ -14,11 +14,11 @@ app.use(cookieParser());
 
 const authRouters=require("./routes/authRoutes")
 const userRouters=require("./routes/userRoutes")
-// const vendorRouters=require("./routes/vendorRouters")
+const vendorRouters=require("./routes/vendorRouters")
 const adminRouters=require("./routes/adminRouters")
 app.use("/api/auth",authRouters)
 app.use("/api/user",userRouters)
-// app.use("/api/vendor",vendorRouters)
+app.use("/api/vendor",vendorRouters)
 app.use("/api/admin",adminRouters)
 
 

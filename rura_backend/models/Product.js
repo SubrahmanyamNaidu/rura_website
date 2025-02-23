@@ -16,6 +16,8 @@ const productSchema=new Schema({
 
     product_image_urls:{type:[String],required:true},
 
+    product_availability:{type:String,enum:["available","outOfStock","pending"],default:"pending"}, // admin have to verify before making it available.
+
     vendor_id:{type:Schema.Types.ObjectId,ref:'User',required:true},  // product owner id
 
 },{timestamps:true})

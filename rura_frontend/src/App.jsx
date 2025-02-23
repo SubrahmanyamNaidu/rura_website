@@ -5,6 +5,8 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import CreateVendor from "./pages/CreateVendor";
 import AddProduct from "./pages/AddProduct";
+import AdminVendorProducts from "./pages/AdminVendorProducts";
+
 
 const App = () => {
   return (
@@ -15,6 +17,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/admin/create-vendor" element={<CreateVendor />} />
         <Route path="/vendor/add-product" element={<AddProduct />} />
+        <Route path="/admin/vendor-products" element={<AdminVendorProducts />} />
         
       </Routes>
     </Router>

@@ -6,7 +6,7 @@ const productSchema=new Schema({
 
     product_price_by_measurements:{type:Map,of:Number,required:true}, // [['kg',100],['500gms',45]]
 
-    product_discount_by_measurements:{type:Map,of:Number,default:0}, //[['kg',10],['500gms',4]]
+    product_discount_by_measurements:{type:Map,of:Number}, //[['kg',10],['500gms',4]]
 
     product_measurement_types:{type:[String],required:true},  //['kg','gm','lit']
 

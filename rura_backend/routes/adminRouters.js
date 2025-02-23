@@ -56,8 +56,25 @@ router.get("/:vendor_id/products",protect,adminOnly,async(req,res)=>{
 
 //to update the status of vendor newly added product to available 
 router.post("/:vendor_id/:product_id",protect,adminOnly,async(req,res)=>{
-    res.status(200).json({message:"vendor product status change route is working fine"})
-})
+    try{
+        const {vendor_id,product_id}=req.params; 
+        let product=await Product.findOne({_id: product_id,vendor_id});
+        // console.log(product)
+        if(!product){
+            return res.status(404).json({message:"Product not found for this vendor"})
+        }
+
+        // Update the product availability status 
+        product.product_availability = "available"
+
+        await product.save()
+
+        res.status(200).json({message:"vendor product status change route is working fine"})
+    }catch(error){
+        console.log(error)
+        res.status(500).json({message:error.message|| "Internal Server Error"})
+    }
+});
 
 
 module.exports=router

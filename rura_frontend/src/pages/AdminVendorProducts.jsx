@@ -1,4 +1,3 @@
-// For admin to see the products of vendors
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -18,6 +17,19 @@ const AdminVendorProducts = () => {
     } catch (err) {
       setError(err.response?.data?.message || "Failed to fetch vendor products");
       setProducts([]);
+    }
+  };
+
+  const handleApprove = async (productId) => {
+    try {
+      await axios.post(
+        `http://localhost:5000/api/admin/${vendorId}/${productId}`,
+        {},
+        { withCredentials: true }
+      );
+      fetchVendorProducts(); // Refresh product list after approval
+    } catch (err) {
+      setError("Failed to approve product");
     }
   };
 
@@ -50,9 +62,8 @@ const AdminVendorProducts = () => {
               <tr className="bg-gray-200">
                 <th className="p-3 text-left">Product Name</th>
                 <th className="p-3 text-left">Price</th>
-                <th className="p-3 text-left">Discount</th>
-                <th className="p-3 text-left">Stock</th>
-                <th className="p-3 text-left">Image</th>
+                <th className="p-3 text-left">Status</th>
+                <th className="p-3 text-left">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -66,26 +77,16 @@ const AdminVendorProducts = () => {
                       </div>
                     ))}
                   </td>
+                  <td className="p-3">{product.product_availability || "Pending"}</td>
                   <td className="p-3">
-                    {Object.entries(product.product_discount_by_measurements).map(([unit, discount]) => (
-                      <div key={unit}>
-                        {unit}: ₹{discount}
-                      </div>
-                    ))}
-                  </td>
-                  <td className="p-3">
-                    {Object.entries(product.product_availability_by_measurement).map(([unit, stock]) => (
-                      <div key={unit}>
-                        {unit}: {stock}
-                      </div>
-                    ))}
-                  </td>
-                  <td className="p-3">
-                    <img
-                      src={product.product_image_urls[0] || "https://via.placeholder.com/100"}
-                      alt={product.product_name}
-                      className="w-16 h-16 object-cover rounded"
-                    />
+                    {product.product_availability !== "available" && (
+                      <button
+                        onClick={() => handleApprove(product._id)}
+                        className="bg-green-500 text-white px-3 py-1 rounded-lg mr-2"
+                      >
+                        Approve
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}

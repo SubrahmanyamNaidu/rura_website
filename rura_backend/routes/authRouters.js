@@ -1,6 +1,7 @@
 const express=require("express")
 const User=require("../models/User")
 const generateToken=require("../utils/jwt")
+const {protect}=require("../middleware/authMiddleware");
 const router=express.Router();
 
 // User Registration 
@@ -30,6 +31,7 @@ router.post("/register",async(req,res)=>{
 
 router.post("/login",async(req,res)=>{
     try{
+        console.log("hi")
         const {email,password}=req.body; 
         const user=await User.findOne({email})
 
@@ -58,5 +60,9 @@ router.post("/logout",(req,res)=>{
     res.cookie("jwt","",{httpOnly:true, expires:new Date(0)});
     res.json({message:"Logged out"});
 });
+
+router.get("/user",protect,(req,res)=>{
+    res.json(req.user)
+})
 
 module.exports=router;

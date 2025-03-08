@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import {updateUser} from "../slices/user"
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const dispatch=useDispatch();
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,8 +20,11 @@ const Login = () => {
         password,
       }, { withCredentials: true });
 
+      dispatch(updateUser(data))
+      console.log(data)
       alert("Login Successful!");
       navigate("/");
+
     } catch (err) {
       setError("Invalid email or password");
     }

@@ -6,6 +6,7 @@ const router = express.Router();
 // Fetch all products
 router.get("/", async (req, res) => {
   try {
+    // console.log("hi")
     const products = await Product.find();
     res.json(products);
   } catch (error) {

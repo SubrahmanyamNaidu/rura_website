@@ -9,7 +9,7 @@ const AdminVendorProducts = () => {
   const fetchVendorProducts = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/admin/${vendorId}/products`,
+        `http://localhost:5000/api/vendors/${vendorId}/products`,
         { withCredentials: true }
       );
       setProducts(data);
@@ -23,8 +23,7 @@ const AdminVendorProducts = () => {
   const handleApprove = async (productId) => {
     try {
       await axios.post(
-        `http://localhost:5000/api/admin/${vendorId}/${productId}`,
-        {},
+        `http://localhost:5000/api/admin/${vendorId}/products`,
         { withCredentials: true }
       );
       fetchVendorProducts(); // Refresh product list after approval

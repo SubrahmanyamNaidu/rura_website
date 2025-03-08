@@ -6,6 +6,7 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ const SignUp = () => {
         name,
         email,
         password,
+        phoneNumber
       });
       alert("Sign-up successful!");
       navigate("/login");
@@ -36,6 +38,13 @@ const SignUp = () => {
             className="w-full p-2 border rounded mb-3"
             value={name}
             onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Phone Number"
+            className="w-full p-2 border rounded mb-3"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
           />
           <input
             type="email"

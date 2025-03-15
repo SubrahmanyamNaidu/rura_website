@@ -28,7 +28,7 @@ const App = () => {
         dispatch(updateUser(data));
         console.log(data)
       } catch (err) {
-        console.error("Failed to fetch user data:", err);
+        // console.error("Failed to fetch user data:", err);
       }
     };
 

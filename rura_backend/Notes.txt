@@ -1,34 +1,50 @@
 Use bcrypt insted of bcryptjs 
 
 Test users
-{
-  "name":"Naidu",
-  "email":"naidu@gmail.com",
-  "password":"naidu",
-  "role":"customer"
-}
+
+admin:
+_id
+67d54e8821b8b60e2075c84b
+name
+"subbu"
+email
+"subrahmanyamnaidusaladi@gmail.com"
+password: naidusaladi942
+"$2b$10$KhbF8ZIkp6/3dNdNv9z/O.U2RF1qG.ZTVBR8QTT43RPKmAoCHxRJy"
+phoneNumber
+"7993905942"
+countryCode
+"+91"
+role
+"admin"
+createdAt
+2025-03-15T09:55:20.409+00:00
+updatedAt
+2025-03-15T09:55:20.409+00:00
+__v
+0
 
 
-admin credientials
-{
-  "name":"admin",
-  "email":"admin@admin.com",
-  "password":"naidu272694",
-  "phoneNumber":"7993905942",
-  "role":"admin"
-}
+venodr:
 
-{
-  "id": "67b1c25a5846bf53865111fb",
-  "name": "admin",
-  "email": "admin@admin.com"
-}
-
-
-//vendor
-
-name:First 
-email:test@gmail.com
-pass:test
-ph:7993905942
+_id
+67d557c554295514529f41c4
+name
+"Subrahmanyam Naidu Saladi"
+email
+"naidusaladi942@gmail.com"
+password: naidu_942
+"$2b$10$ToKrFm1OLYh3RC17sj/23uNevXmqgneuFTd.yx5g2ZkGOvy4uUVeG"
+phoneNumber
+"7993905942"
+countryCode
+"+91"
+role
+"vendor"
+createdAt
+2025-03-15T10:34:45.623+00:00
+updatedAt
+2025-03-15T10:34:45.623+00:00
+__v
+0
 
